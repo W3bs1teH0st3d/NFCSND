@@ -2,10 +2,6 @@ if game.CoreGui:FindFirstChild("Neverlose1") then
     game.CoreGui.Neverlose1:Destroy()
 end
 
-for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
-    v:Disable()
-end
-
 local Neverlose_Main = {
     Settings = {
         CloseBind = "RightControl",
@@ -76,8 +72,6 @@ function Neverlose_Main:PlaySound(SoundID)
     sound.Volume = 50
     sound:Play()
 end
-
-local BuildInfo = loadstring(game:HttpGet"https://pastebin.com/raw/HzAeDGm4")()
 
 local function MakeDraggable(topbarobject, object)
     local Dragging = nil
