@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звук на максимум</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #121212;
+        }
+
+        button {
+            width: 100px;
+            height: 100px;
+            background: #ff5722;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.5);
+            transition: 0.3s;
+        }
+
+        button:active {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <button id="soundButton">🔊</button>
+    <audio id="audio" src="ston.mp3"></audio>
+
+    <script>
+        document.getElementById("soundButton").addEventListener("click", function () {
+            let audio = document.getElementById("audio");
+            audio.volume = 1.0;
+            audio.play().catch(err => console.error("Ошибка воспроизведения:", err));
+
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
+  
